@@ -1,7 +1,12 @@
 select * from EV_DATA
 
+select * from customer
 
+select * from company
 
+select * from car_specs
+
+	
 
 -- TASK 1 : Creating a new table using select query.
 -- PROBLEM STATEMENT : Create a new table consisting CUSTOMER's details using select query.
@@ -19,7 +24,6 @@ select * from company
 
 
 -- PROBLEM STATEMENT : Create a new table consisting CAR SPEC's details using select query.
-
 CREATE TABLE car_specs AS
 select car_maker, car_model , model_year , ev_type , chargeing_speed_type, range_km , battery_capacity_kwh , price_lakhs from EV_DATA
 
@@ -29,7 +33,6 @@ select * from car_specs
 
 
 -- TASK 2 : JOIN 3 Tables of the dataset into 1
-
 select * from customer AS CUS
  INNER JOIN car_specs AS CAR
  on cus.cs_id = car.cs_id
@@ -40,7 +43,6 @@ select * from customer AS CUS
  
  
  -- TASK 3 : JOIN table and use WHERE clause
- 
  -- Problem statement: Give details of customer who have car model 'Hyundai Nexo' OR 'BMW i4' OR 'Ioniq 5' .
  
  select cus.* , car.car_model from customer AS CUS
@@ -51,7 +53,6 @@ select * from customer AS CUS
  
  
 -- TASK 4 : Execute having , group by, order by together
-
 -- Problem statment : Show 'car_model' along with their 'ev_type' whose range is more that 500 km.
 
 select car_model ,ev_type , range_km from car_specs
@@ -61,7 +62,6 @@ order by range_km
 
 
 -- Task 5 : WINDOW Function (ROW_NUMBER)
-
 -- Problem statment : Calculate no. of Rows of distinct 'ev_type'.
 
 select ev_type , ROW_NUMBER() 
@@ -84,7 +84,6 @@ over ( Partition by ev_type
 
 
 --WINDOW Function (DENSE_RANK)
-
 -- Problem statment : Give DENSE_RANK to distict 'ev_type' whose range is BETWEEN 500 AND 1000
 
 select ev_type , range_km , DENSE_RANK()
@@ -105,9 +104,6 @@ select car_maker , model_year , range_km from company AS com
  on com.cs_id = car.cs_id
  group by car_maker , model_year ,range_km
  having model_year = 2024 AND  range_km > 500
-
-
-
 
 
 

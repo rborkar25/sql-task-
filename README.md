@@ -1,2 +1,2 @@
 # sql-task-
-Small presentation and task regarding about various sustainable vehicles, especially  electric vehicles (EVs) 
+Small presentation and tasks regarding various sustainable vehicles, especially  electric vehicles (EVs) 
